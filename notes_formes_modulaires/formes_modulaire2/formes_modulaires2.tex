@@ -1,0 +1,179 @@
+\documentclass[12pt]{article}
+\usepackage[dvipsnames]{xcolor}
+\usepackage{hyperref, pagecolor, mdframed }
+\usepackage{graphicx, amsmath, latexsym, amsfonts, amssymb, amsthm,
+amscd, geometry, xspace, enumerate, mathtools}
+\usepackage{tikz}
+
+\theoremstyle{plain}
+\newtheorem{thm}[subsubsection]{Th\'eor\`eme}
+\newtheorem{lem}[subsubsection]{Lemme}
+\newtheorem{prop}[subsubsection]{Proposition}
+\newtheorem{propr}[subsubsection]{Propri\'et\'e}
+\newtheorem{cor}[subsubsection]{Corollaire}
+\newtheorem{intro}[section]{Introduction}
+\newtheorem{thm2}[subsection]{Th\'eor\`eme}
+\newtheorem{lem2}[subsection]{Lemme}
+\newtheorem{prop2}[subsection]{Proposition}
+\newtheorem{propr2}[subsection]{Propri\'et\'e}
+\newtheorem{cor2}[subsection]{Corollaire}
+
+\theoremstyle{definition}
+\newtheorem{defn}[subsubsection]{D\'efinition}
+\newtheorem{rmq}[subsubsection]{Remarque}
+\newtheorem{conj}[subsubsection]{Conjecture}
+\newtheorem{exmp}[subsubsection]{Exemples}
+\newtheorem{quest}[subsubsection]{Exercices}
+\newtheorem{defn2}[subsection]{D\'efinition}
+\newtheorem{rmq2}[subsection]{Remarque}
+\newtheorem{conj2}[subsection]{Conjecture}
+\newtheorem{exmp2}[subsection]{Exemples}
+\newtheorem{quest2}[subsection]{Exercices}
+
+\theoremstyle{remark}
+\newtheorem{rem}{Remarque}
+\newtheorem{note}{Note}
+
+\newcommand{\fdiv}{\textrm{div}}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\K}{\mathbb{K}}
+\newcommand{\Proj}{\mathbb{P}}
+\newcommand{\algK}{\overline{K}}
+\newcommand{\algF}{\overline{\mathbb{F}}}
+\newcommand{\Pic}{\textrm{Pic}}
+\newcommand{\Hom}{\textrm{Hom}}
+\newcommand{\End}{\textrm{End}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\w}{\omega}
+\newcommand{\h}{\mathfrak{h}}
+\newcommand{\La}{\mathcal{L}}
+\newcommand{\D}{\mathcal{D}}
+\newcommand{\F}{\mathcal{F}}
+\hypersetup{
+    colorlinks=true,
+    linkcolor=blue,
+    urlcolor=Green,
+    filecolor=RoyalPurple
+}
+
+\definecolor{wgrey}{RGB}{148, 38, 55}
+\title{Formes modulaires}
+\date{13 aout 2023}
+\begin{document}
+\tableofcontents
+\maketitle
+
+En suivant "A first course in modular forms".
+\section{Structure de surface de Riemann des courbes modulaires}
+\subsection{Sous-groupes de congruences}
+On note $\pi_N$ la projection $SL_2(\Z)\rightarrow SL_2(\Z/N\Z)$.
+\begin{defn}
+Les sous groupes principaux :
+\begin{enumerate}
+    \item $\Gamma(N):=\{\gamma\in SL_2(\Z);~\pi_N(\gamma)=I\}$
+    \item $\Gamma_0(N):=\{\gamma\in SL_2(\Z);~\pi_N(\gamma)=\begin{pmatrix}*&*\\ 0&* \end{pmatrix}\}$
+    \item $\Gamma_1(N):=\{\gamma\in SL_2(\Z);~\pi_N(\gamma)=I+\begin{pmatrix}0&*\\ 0&0 \end{pmatrix}\}$
+\end{enumerate}
+On a $\Gamma(N)\subset \Gamma_1(N)\subset \Gamma_0(N)$. 
+\end{defn}
+
+\begin{defn}
+    On définit $Y(N),Y_0(N),Y_1(N)$ comme $\Gamma(N)\backslash\h$, $\Gamma_0(N)\backslash\h$, $\Gamma_1(N)\backslash\h$. 
+    Les courbes modulaires (auxquelles il manque des points).
+\end{defn}
+
+\begin{rem}
+    Ducoup c'est des moduli space de courbes elliptiques + torsion. En particulier : $Y_0(N)\backslash \h$ a pour point 
+    les classes d'équivalence sur $\{(E,G);~\text{G est d'ordre N}\}$ pour la relation : $$(E,G)\sim(E',G')$$ ssi il existe une isogénie qui envoie 
+    $G$ sur $G'$. En particulier, $(E,G)\sim (E/G, \{O\})$. (Voir 1.5. du livre)
+\end{rem}
+
+Pour $\Gamma(N)\subset\Gamma\subset SL_2(\Z)$ on définit de meme $Y(\Gamma)$.
+
+\subsection{Topologie de $Y(\Gamma)$.}
+On utilise la topologie quotient via la projection $\pi:\h\rightarrow Y(\Gamma)$, alors :
+\begin{enumerate}
+    \item $\pi(U_1)\cap\pi(U_2)=\emptyset$ si et seulement si $\Gamma U_1\cap U_2=\emptyset$
+    \item En plus, on peut trouver des ouverts suffisamment petits $\tau_1\in U$, $\tau_2\in V$ tels que
+     $$\forall\gamma\quad \gamma U\cap V\ne\emptyset \implies \gamma(\tau_1)=\tau_2$$En fait pendant la preuve on montre aussi 
+     que $\{\gamma;~\gamma U_1\cap U_2\ne\emptyset\}$ est fini. (En utilisant $Im(\gamma\tau)=Im(\tau)/\lvert c\tau+d\rvert$, 
+     remarque que la partie imaginaire a tendance a diminuer et pas grandir. Ensuite on moyenne les ouverts obtenus)
+    \item On utilise ces ouverts pour montrer que la topologie est Hausdorff. (On compactifie après.)
+\end{enumerate}
+
+\subsection{Cartes et points elliptiques}
+On regarde $i:\Gamma\subset SL_2(\Z)\xhookrightarrow{PSL_2} SL_2(\Z)/\{\pm1\}$.($\{\pm1\}\Gamma/\{\pm1\}$) :
+\begin{defn}
+    Sous-groupe d'\textbf{isotropie} : $\Gamma_{\tau}:=\{\gamma\in \Gamma;~\gamma\tau=\tau\}$. \\Et \textbf{periode} de $\tau$ :
+    $h_{\tau}:=\begin{cases}
+        \lvert \Gamma_{\tau}/2\rvert &si~-I\in\Gamma_{\tau}\\
+        \lvert \Gamma_{\tau}\rvert &sinon
+    \end{cases}$, autrement dit $h_{\tau}=\lvert i(\Gamma_{\tau})\rvert$.
+\end{defn}
+
+La periode est définissable car le sous groupe d'isotropie est fini. (A voir après) 
+
+\begin{abstract}
+    On cherche maintenant les cartes et coordonnées locales : la periode est définie sur $Y(\Gamma)$ lorsque $\Gamma$ est distingué et on regarde 
+    l'image dans $PSL_2(\Z)$ car $-I$ agit toujours trivialement sur $Y(\Gamma)$. Maintenant les étapes, en gros les points problématiques
+    c'est les points elliptiques psq les autres $\pi$ est localement injective, ducoup on regarde un petit ouvert d'un point elliptique intersecté
+    avec un domaine fondamental (voir un dessin) :
+    \begin{enumerate}
+        \item On se ramène à $0$ via $\delta_{\tau}:=\begin{pmatrix} 1 &-\tau\\ 1 & -\overline{\tau}\end{pmatrix}$
+        \item On remarque que les conjugués $\delta_{\tau}\Gamma_{\tau}\delta_{\tau}^{-1}$ fixent $0,\infty$ et 
+        étant des homographies sont linéaires. Enfin par le point d'avant c'est de cardinal $h_{\tau}$ en tant que 
+        groupe de transformations (dans $PSL_2$).
+        \item Ce sont donc des rotations d'angle $2\pi/h_{\tau}$. La on peut visualiser : $\delta_{\tau}$ envoie donc 
+        un petit voisinage de $\tau$ sur une part de cercle (littéralement) de pointe $0$. On obtient une boule en mettant a la puissance
+        $h_{\tau}$.
+        \item Ensuite, il existe $\tau\in U$ tq pour tout $\gamma$, $\gamma U\cap U\ne\emptyset$ implique que $\gamma\in\Gamma_{\tau}$.
+        \item D'ou on prend $\overline{U}:=\Gamma_{\tau}\backslash U$ et $\delta_{\tau}^{h_{\tau}}$ comme coordonnée locale.
+    \end{enumerate}
+\end{abstract}
+
+Pour les points elliptiques, on remarque plusieurs choses :
+\begin{enumerate}
+    \item topologiquement $Y(1)$ est un plan et a pour domaine fonda : $\D:=\{z;~\lvert z\rvert\geq 1,~\lvert Re(z)\rvert \leq 1/2\}$
+    \item Les points de $\D$ qui restent dans $\D$ après une transfo sont au bord.
+    \item Les points elliptiques : écrire le disc de $a\tau+b=c\tau^2+d\tau$ donne $\lvert a+d\rvert<2$ puis
+    le pol caractéristique de $\gamma$ s'écrit $x^2+(a+d)X+1$, d'ou $\gamma^6=I$ et y'a une jolie preuve pour préciser ca dans le livre.
+    \item Les points elliptiques pour $SL_2(\Z)$ sont $SL_2(\Z).i$ et $SL_2(\Z).\mu_3$ de groupes $<S>=<\begin{pmatrix}0&-1\\1&0 \end{pmatrix}$
+    et $<ST>=<\begin{pmatrix}0&-1\\ 1&1 \end{pmatrix}$. Groupes finis cycliques.
+\end{enumerate}
+
+Enfin comme $SL_2(\Z)=\cup_{i=1}^{d}\Gamma\gamma_i$ d'indice fini:
+\begin{prop}
+    Les points elliptiques de $\Gamma$ sont contenus dans $\Gamma.\{\gamma_j(i),\gamma_j(\mu_3);~j\}$. Donc nombre fini
+    et les groupes d'isotropie sont finis cycliques aussi.
+\end{prop}
+
+\subsection{pointes}
+On compactifie maintenant $\h$ d'une certaine manière : $\h^*:=\h\cup\Proj^1(\Q)$. 
+\begin{defn}
+    $X(\Gamma):=\Gamma\backslash \h^*$ ou l'action de $\Gamma$ sur $\Proj^1(\Q)$ est l'action par homographies.
+\end{defn}
+
+Quand $\Gamma\ne SL_2(\Z)$ y'a plus de pointes que $\infty$ ducoup prendre des $\{\lvert z\rvert > r\}\cap \h^*$ 
+ca contient trop de points de $\Proj^1(\Q)$ en gros en quotientant, tente de séparer deux pointes $\ne\infty$.
+
+\begin{defn}
+    On rajoute aux ouvert de $\h$ les boules $N_m:=\{Im(\tau)> m\}$ et les images $\alpha(N_m)$ ou 
+    $\alpha$ envoie $\infty$ sur $q\in\Q$.
+\end{defn}
+Les transformations sont conformes, contenues dans $\h\cup\Q$ d'ou des disques tangent à $\mathbb{R}$.
+
+
+\begin{prop}
+    $X(\Gamma)$ est Hausdorff, connexe et compacte.
+\end{prop}
+
+Y'a quelques étapes en plus pour la structure de surface de Riemann par rapport à $X(1)$. C'est p.59 (a regarder)
+
+
+
+
+\end{document}
+
+\section{formes modulaires et dimension}

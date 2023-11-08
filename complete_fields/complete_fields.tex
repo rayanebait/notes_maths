@@ -1,0 +1,71 @@
+\documentclass[12pt]{article}
+\usepackage[dvipsnames]{xcolor}
+\usepackage{hyperref, pagecolor, mdframed }
+\usepackage{graphicx, amsmath, latexsym, amsfonts, amssymb, amsthm,
+amscd, geometry, xspace, enumerate, mathtools}
+\usepackage{tikz}
+
+\theoremstyle{plain}
+\newtheorem{thm}[subsubsection]{Th\'eor\`eme}
+
+\newcommand{\fdiv}{\textrm{div}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\algK}{\overline{K}}
+\newcommand{\algF}{\overline{\mathbb{F}}}
+\newcommand{\Pic}{\textrm{Pic}}
+\newcommand{\Hom}{\textrm{Hom}}
+\newcommand{\End}{\textrm{End}}
+\newcommand{\Disc}{\textrm{Disc}}
+\newcommand{\Det}{\textrm{Det}}
+\newcommand{\Tr}{\textrm{Tr}}
+\newcommand{\Or}{\mathcal{O}}
+\newcommand{\OK}{\mathcal{O}_{K}}
+\newcommand{\OL}{\mathcal{O}_{L}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\ai}{\mathfrak{a}}
+\newcommand{\bi}{\mathfrak{b}}
+\newcommand{\w}{\omega}
+\newcommand{\gr}{\color{Sepia}}
+\newcommand{\rg}{\color{Red}}
+\hypersetup{
+    colorlinks=true,
+    linkcolor=blue,
+    urlcolor=Green,
+    filecolor=RoyalPurple
+}
+
+\definecolor{wgrey}{RGB}{148, 38, 55}
+
+\title{Valuations/Complete fields}
+\date{21 septembre 2023}
+
+\begin{document}
+\maketitle
+\tableofcontents
+
+\section{les nombres p-adiques}
+On définit $\Z_p$ par
+\begin{enumerate}
+    \item $\underleftarrow{lim} \Z/p^\Z$ muni de la topologie induite du produit des topologies discrètes, la structure d'anneau est alors évidente.
+La structure un peu moins.
+    \item L'espace des séries formelles $\sum_{i=0}^{\infty} a_ip^i$ ou la l'injection de $\Z$ est donnée par l'écriture en base $p$
+La complétude est plus claire mais la structure d'anneau un peu moins.
+\end{enumerate}
+$\Q_p$ est donné par les corps de fraction. Qui sont en fait isomorphes à la complétion de $\Q$ en $v_p$.
+L'utilité vient en partie de la réduction :
+\begin{itemize}
+    \item Etant donné une équation $F(x_1,...,x_n)=0$.
+    \item On la réduit modulo $m$ puis par le CRT modulo $p^{\nu}$ $\forall \nu$.
+\end{itemize}
+
+Et en fait :
+\begin{itemize}
+    \item $\forall~\nu$ il existe une solution mod $p^{\nu}$ ssi il en existe une primitive dans $\Q_p$, ou une dans $\Z_p$(equivalent).
+    \item En fait il suffit d'un $\nu$ par le lemme de Hensel.
+\end{itemize}
+
+
+
+
+\end{document}

@@ -1,0 +1,63 @@
+\documentclass[12pt]{article}
+\usepackage[dvipsnames]{xcolor}
+\usepackage{hyperref, pagecolor, mdframed }
+\usepackage{graphicx, amsmath, latexsym, amsfonts, amssymb, amsthm,
+amscd, geometry, xspace, enumerate, mathtools}
+\usepackage{tikz}
+
+\newcommand{\fdiv}{\textrm{div}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\K}{\mathbb{K}}
+\newcommand{\algK}{\overline{K}}
+\newcommand{\algF}{\overline{\mathbb{F}}}
+\newcommand{\Pic}{\textrm{Pic}}
+\newcommand{\Hom}{\textrm{Hom}}
+\newcommand{\End}{\textrm{End}}
+\newcommand{\C}{\mathbb{C}}
+
+\hypersetup{
+    colorlinks=true,
+    linkcolor=blue,
+    urlcolor=Green,
+    filecolor=RoyalPurple
+}
+
+\definecolor{wgrey}{RGB}{148, 38, 55}
+
+\title{résumé outils importants}
+\date{13 aout 2023}
+\begin{document}
+\maketitle
+
+\section{Cauchy}
+Là on regarde des chemins de Jordan, $\Omega\subset\C$ un ouvert simplement connexe et $f\in H(\Omega)$. Dans l'ordre :
+\begin{itemize}
+    \item $I(a,\gamma)=\int_{\gamma}\frac{dz}{z-a}=$nb de tours de $\gamma$ autour de a.
+    \item $\int_{triangle}f=0$ via la preuve ou on réduit la taille du triangle.
+    \item Le point précedent implique l'existence d'une primitive ! d'où :
+    \item $\int_{\gamma}f=0$ pour tout chemin fermé.
+    \item Ensuite on intègre $\frac{f(z)-f(w)}{z-w}$ pour obtenir la formule de Cauchy pour un chemin de Jordan orienté positivement : $$f(z)=\int_{\gamma}\frac{f(w)dw}{w-z}$$
+    \item d'où on peut dériver indéfiniment sous l'intégrale ! (on dérive 1/z).
+\end{itemize}
+
+De l'holomorphie on déduit :
+\begin{itemize}
+    \item Borne sur les coefficients du développement en série entière : $|c_n|\leq M(r)/r^n$ où $M(r)$ est le sup au bord du cercle.
+    \item La borne implique Liouville, $f$ entière bornée $\implies$ constante.
+    \item principe du maximum, le maximum est atteint au bord de l'ouvert de définition.
+\end{itemize}
+
+\section{Résidus}
+On note $M(\Omega)$ les fonctions méromorphes sur $\Omega$.
+
+\begin{itemize}
+    \item Y'a un développement de Laurent $\sum_{n=-m}^{+\infty}c_n(z-a)^n$.
+    \item $Res(a, f)$=terme de degré $-1$ dans le développement. Terme important à l'intégration sur un chemin fermé !
+    \item $Res(a, f')=0$ ! 
+    \item Pour un cycle $\gamma$ homologue à zéro : $\frac{1}{2i\pi}\int_{\gamma}\frac{f(w)dw}{w-z}=\sum_{a\in poles}I(a, \gamma)Res(a,f)$
+    \item $\frac{1}{2i\pi}\int_{\gamma} \frac{f'}{f}=\# Z(f)-P(f)$. Ou les $Z$ et $P$ sont ceux à l'intérieur de $\gamma^*$.
+\end{itemize}
+
+
+\end{document}

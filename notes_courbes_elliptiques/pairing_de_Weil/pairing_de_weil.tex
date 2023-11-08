@@ -1,0 +1,121 @@
+\documentclass[12pt]{article}
+\usepackage[dvipsnames]{xcolor}
+\usepackage{hyperref, pagecolor, mdframed }
+\usepackage{graphicx, amsmath, latexsym, amsfonts, amssymb, amsthm,
+amscd, geometry, xspace, enumerate, mathtools}
+\usepackage{tikz}
+
+\newcommand{\fdiv}{\textrm{div}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\K}{\mathbb{K}}
+\newcommand{\algK}{\overline{K}}
+\newcommand{\algF}{\overline{\mathbb{F}}}
+\newcommand{\Pic}{\textrm{Pic}}
+\newcommand{\Hom}{\textrm{Hom}}
+\newcommand{\End}{\textrm{End}}
+
+\hypersetup{
+    colorlinks=true,
+    linkcolor=blue,
+    urlcolor=Green,
+    filecolor=RoyalPurple
+}
+
+\definecolor{wgrey}{RGB}{148, 38, 55}
+\title{(Accouplement de Weil mais c'est moche)}
+\date{5 juillet 2023}
+\begin{document}
+%\tableofcontents
+\maketitle
+
+\noindent \noindent \textbf{Petit rappel} : Sur la courbe elliptique $E$, $D\in Div^0(E)$ est principal ssi 
+\begin{itemize}
+    \item deg$(D)=0$
+    \item Si $D=\sum n_i(P_i)$, $\sum [n_i]P_i=O$ dans $E$.
+\end{itemize}    
+(Voir Isogenies.) \\\newline 
+Pareil, pour $E_1,~E_2$ des courbes ell :
+\begin{align*}
+    \phi~:~&E_1\rightarrow E_2\\
+    \phi^*~:~&\Pic(E_2)\rightarrow \Pic(E_1)\\
+    &(Q)\mapsto \sum_{P\in\phi^{-1}(Q)}e_{\phi}(P)(P)
+\end{align*}
+Aussi, on a $e_{\phi}(P)=ord_P~t_{\phi(P)}\circ\phi$ et $ord_P~f\circ\phi=e_{\phi}(P)ord_{\phi(P)}~f$ (faut simplement l'écrire). 
+D'où \begin{flalign*}
+    &&\fdiv(\phi^*(\fdiv(f)))=\fdiv(f\circ\phi)&& (*)
+\end{flalign*}
+\\\newline
+
+\noindent \textbf{\color{wgrey} Construction :} On prend $T\in E[m]$, $p\nmid m$, et $T'$ t.q $[m]T'=T$. Alors
+\begin{itemize}
+    \item $\exists~f\in \algK(E)$ tel que $\fdiv(f)=m(T)-m(O)$
+    \item $\exists~g\in \algK(E)$ tel que $\fdiv(g)=[m]^*((T)-(O)).$ On le voit avec $$\fdiv(g)=[m]^*((T)-(O))=\sum_{R\in E[m]}(T'+R)-\sum_{R\in E[m]}(R)$$
+\end{itemize}
+
+
+\noindent Le degré est clairement $0$ et la somme $\sum_{R\in E[m]}T'+R-R=\left[\#E[m]\right]T'=O$.
+Maintenant on remarque que \textbf{\color{wgrey}
+\begin{flalign*} 
+    &&\fdiv(f\circ[m])=\fdiv(g^m)&& (**)
+\end{flalign*}
+}
+par $(*)$. On suppose donc que $f\circ[m]=g^m$.
+Et on choisit un autre $S\in E[m]$, $T$ est valable aussi. \\\newline \textbf{\color{wgrey}Maintenant la magie : }On a
+\begin{flalign*}
+    && g(X+S)^m=f([m]X+[m]S)=f\circ[m](X)=g(X)^m &&
+\end{flalign*}
+Puis $(X\mapsto\left(g(X+S)/g(X)\right)^m)\equiv 1$ d'où pour tout $X$, $\left(g(X+S)/g(X)\right)\in\mu_m(\algK)$ donc prend un nombre fini de valeurs
+et donc est pas surjective donc constante.\\
+\newline
+\noindent\textbf{\color{wgrey} Récap :} 
+\begin{itemize}
+    \item à $T\in E[m]$ on trouve un $g$ vérifiant $(**)$.
+    \item à $S\in E[m]$ on obtient $\alpha\equiv \left(X\mapsto g(X+S)/g(X)\right)$. On remarque que $g$ est unique à constante près
+et que le quotient est donc indépendant de $g$.
+\end{itemize}
+
+Ce qui donne un pairing : 
+\begin{flalign*}
+    && e_m~:~E[m]\times E[m]\rightarrow\mu_m&& (\circ)
+\end{flalign*}
+
+{\color{wgrey}\rule{\linewidth}{0.5mm}}\\\newline 
+\noindent\textbf{\color{wgrey} Props :} 
+\begin{itemize}
+    \item $e_m$ \textbf{\color{Green}est bilinéaire.} (Pour la linéarité en $T$ on considère $h$ t.q $div(h)=(T+T')-(T)-(T')+(O)$).
+    \item $e_m$ \textbf{\color{Green}est alternée}, $e_m(T,T)=1$ d'où en part $e_m(S,T)=e_m(T,S)^{-1}$.\\ ($\prod_{i=0}^{m-1}g_T\circ\tau_{[i]T'}$ est constante.($g_[i+1]T=\prod ...$))
+    \item $e_m$ \textbf{\color{Green}est non dégénérée}, i.e. $$\forall S~e_m(S,T)=1\implies T=O$$($g_T$ se factoriserai en $\lambda_T\circ[m]$, comparer son diviseur)
+    \item $e_m$ \textbf{\color{Green}est galois invariante}, i.e. $e_m(S^{\sigma}, T^{\sigma})=e_m(S, T)^{\sigma}$. ($g_{T^{\sigma}}=g_T^{\sigma}$, c'est clair.)
+    \item $e_m$ \textbf{\color{Green}est compatible}, i.e. $\forall S\in E[mm'],~T\in E[m]~:~e_{mm'}(S,T)=e_m([m']S,T)$. (Comparer $g_{T,m}\circ[m']$ avec $g_{T,mm'}^{m'}$.)
+
+\end{itemize}
+{\color{wgrey}\rule{\linewidth}{0.5mm}}\\\newline 
+Ca c'était les props de base maintenant pour $\phi~:~E_1\rightarrow E_2$ et $\hat{\phi}$ sa duale :
+\begin{itemize}
+    \item $\phi$ et $\hat{\phi}$ sont \textbf{\color{Green}adjointes} pour $e_m$, i.e. $e_m(\phi(S), T)=e_m(S, \hat{\phi(T)})$. ($\exists~h~:~\fdiv(h)+(\hat{\phi}(P))-(O)=\phi^*(T)-\phi^*(O)$ et on lie les $e_m$)
+    \item $e_m$ est \textbf{\color{Green}surjective} pour chaque $m$. (via la non dégénérescence.)
+\end{itemize}
+
+\noindent {\color{wgrey}\rule{\linewidth}{0.5mm}}\newline 
+
+Maintenant on obtient facilement, via la \textbf{\color{Green}compatibilité}, un pairing sur le module de Tate :
+\begin{flalign*}
+    &&e~:~T_l(E)\times T_l(E)\rightarrow T_l(\mu)&&(\circ\circ)
+\end{flalign*}
+
+Maintenant si $\phi\in \End(E)$ et $\phi_l=\begin{pmatrix} a&b\\ c&d\end{pmatrix}$ dans la $\Z_l$-base $v_1,v_2$ de $T_l(E)$.
+On calcule \begin{align*}
+    (e_m(v_1,v_2)^{deg(\phi)}&=e_m([deg(\phi)]v_1,v_2))\\
+       &=e_m(\phi v_1,\phi v_2) \\
+       &=e_m([a]v_1+[b]v_2,[c]v_1+[d]v_2)\\
+       &=e_m(v_1,v_2)^{ad-bc}
+\end{align*}
+d'où par la non-dégénérescence 
+\begin{itemize}
+    \item $deg(\phi)=det(\phi_l)$. ($det(\phi_l)$ est indépendant de $l$)
+    \item $tr(\phi)=tr(\phi_l)=1+deg(\phi)+deg(1-\phi)$.
+\end{itemize}
+
+
+\end{document}

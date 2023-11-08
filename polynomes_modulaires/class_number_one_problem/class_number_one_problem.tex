@@ -1,0 +1,95 @@
+\documentclass[12pt]{article}
+\usepackage[dvipsnames]{xcolor}
+\usepackage{hyperref, pagecolor, mdframed }
+\usepackage{graphicx, amsmath, latexsym, amsfonts, amssymb, amsthm,
+amscd, geometry, xspace, enumerate, mathtools}
+\usepackage{tikz}
+
+\newcommand{\fdiv}{\textrm{div}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\K}{\mathbb{K}}
+\newcommand{\algK}{\overline{K}}
+\newcommand{\algF}{\overline{\mathbb{F}}}
+\newcommand{\Pic}{\textrm{Pic}}
+\newcommand{\Hom}{\textrm{Hom}}
+\newcommand{\End}{\textrm{End}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\w}{\omega}
+\hypersetup{
+    colorlinks=true,
+    linkcolor=blue,
+    urlcolor=Green,
+    filecolor=RoyalPurple
+}
+
+\definecolor{wgrey}{RGB}{148, 38, 55}
+\title{Class number one problem with modular curves}
+\date{13 aout 2023}
+\begin{document}
+%\tableofcontents
+\maketitle
+
+En suivant cet article : \href{https://people.clas.ufl.edu/jeremybooher/files/class_number_one.pdf}{Modular curves and the class number one problem}.
+\section{elliptic curves over $\C$}. Et le livre de Cox : primes of the form $x^2+ny^2$.
+
+\section{fonctions elliptiques et multiplication complexe}
+Là le but c'est de lier corps quadratiques imaginaires et courbes elliptiques.\\
+En gros ce sera les fonctions régulières sur la courbe je crois. Une fonction est elliptique pour un réseau $L$ si meromorphe sur $\C$ et périodique sur 
+$L$. 
+
+\begin{itemize}
+    \item En gros si $L=[\w_1, \w_2]$ et $f$ est elliptique pour $L$, $f$ est holomorphe sur $\C\backslash L$ et $\forall z~f(z+\w_1)=f(z+\w_2)=f(z)$.
+\end{itemize}
+
+\subsection{fonction rho de Weierstrass}
+Via le Cox p.182. On pose $\wp(z;L)=~\frac{1}{z^2}~+~\sum_{\w\in L\setminus{0}}\left(\frac{1}{z^2}-\frac{1}{\w^2}\right)$. D'abord la convergence, l'holomorphie tout ça c'est donné par : 
+\begin{itemize}
+    \item $G_r(L):=\sum_{L\setminus{0}}\frac{1}{\w^r}$ converge absolument pour $r>2$. Via $$\lvert G_r(L)\rvert\leq\frac{1}{M^r}\sum_{m,n} \frac{1}{\lvert m^2+n^2\rvert^r}$$ et en comparant
+à l'intégrale de Riemann convergente corresp :$\qed$
+    \item Ensuite ça permet de majorer le terme de la $\wp$ par $G_3$ et conclure.
+    \item $\wp$ est paire.
+    \item $\wp$ est périodique : $\wp '$ l'est trivialement ducoup écrire $\wp(\w_1/2)=\wp(-\w_1/2)+C$ puis $C=0$.
+\end{itemize}
+
+On cherche la relation qui donne la courbe elliptique : l'idée est souvent la même, 
+Supprimer les poles puis trouver des 0. Comme pour $x<1$ : $\frac{1}{(1-x)^2}=1+\sum_{n\geq1} (n+1)x^n$. On a :
+\begin{itemize}
+    \item Autour de $0$ : $\wp(z)=\frac{1}{z^2} + \sum_{n=1} (2n+1)G_{2n+2}z^{2n}$, le $2$ vient de la parité.
+    \item Autour de $0$ : $\wp '(z)=\frac{-2}{z^3} + \sum_{n=1}(2n+1)(2n)G_{2n+2}z^{2n-1}$.
+    \item D'où en comparant les coeffs de $\wp^3$ et $(\wp ')^2$ et en posant $g_2(L)=60G_4(L)$ et $g_3(L)=140G_6(L)$ on obtient que:
+    $$F(z)=\wp '(z)^2-4\wp(z)^3+g_2\wp(z)+g_3$$
+s'annule en $0$ et donc sur tout $L$ mais par periodicité reste bornée donc constante. i.e. $$\wp '(z)^2=4\wp(z)^3-g_2\wp(z)-g_3$$
+    \item Enfin : $\wp(z)=\wp(w)~\leftrightarrow~z\equiv w~mod~L$ (utiliser la formule de weierstrass, voir poly).
+    \item D'où $\wp '(z)=0\leftrightarrow 2z\in L$, c'est les points d'ordre $2$.
+    \item Formule de l'addition : $\wp(z+w)=-\wp(z)-\wp(w)+\frac{1}{4}(\frac{\wp '(z)-\wp '(w)}{\wp(z)-\wp(w)})^2$. A nouveau y faut écrire les
+    développements de Laurent et supprimer les pôles. (cas $P\ne-Q$ : l'hospital, cas $2P\in L$ a faire).  
+\end{itemize}
+
+\subsection{j-invariant}
+On pose :
+\begin{itemize}
+    \item $\Delta(L)=\textrm{Disc}(4x^3-g_2(L)x-g_3(L))=g_2(L)^3-27g_3(L)^2$.
+    \item $j(L)=1728\frac{g_2(L)^3}{\Delta(L)}$.
+\end{itemize}
+
+La dèf de $j$ est valable car $\Delta$ est nulle ssi la courbe est singulière sauf que, les points d'ordres $2$ sont on a vu :$$\w_1/2,~\w_2/2~,~\frac{\w_1+\w_2}{2}$$
+Le point important est que :\begin{itemize}
+    \item $j(L)=j(L')\leftrightarrow L'=\lambda L$.
+\end{itemize}
+
+En fait on regarde ce qu'y se passe quand on a seulement $g_2(L')=\lambda^{-4}g_2(L)$ et $g_3(L')=\lambda^{-6}g_3(L)$. Comme 
+\begin{itemize}
+    \item Les coeffs du développements de Laurent $\wp(z)=\frac{1}{z^2} + \sum_{n=1} (2n+1)G_{2n+2}z^{2n}$ sont des polynomes
+    à coefficients rationnels indép de $L$ en les $g_2,~g_3$. (dériver l'équa diff et comparer les coeffs)
+\end{itemize}
+
+Ducoup $\wp(z;L')=\wp(z;\lambda L)$ puis $L'=\lambda L$ car les pôles de $\wp$ sont le réseau associé !
+
+\subsection{Multiplication complexe}
+Bon la ca se corse, y faut parler de corps quadratiques et d'ordres. Puis de corps de classe de Hilbert. Du coup,
+je fais un autre Latex qui se concentre dessus.
+
+
+
+\end{document}

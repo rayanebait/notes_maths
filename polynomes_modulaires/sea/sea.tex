@@ -1,0 +1,45 @@
+\documentclass[12pt]{article}
+\usepackage[dvipsnames]{xcolor}
+\usepackage{hyperref, pagecolor, mdframed }
+\usepackage{graphicx, amsmath, latexsym, amsfonts, amssymb, amsthm,
+amscd, geometry, xspace, enumerate, mathtools}
+
+\hypersetup{
+    colorlinks=true,
+    linkcolor=blue,
+    urlcolor=red
+}
+\title{SEA, notes 1}
+\date{30 juin 2023}
+\begin{document}
+\tableofcontents
+\maketitle
+\noindent Ref 1 : \href{https://scholar.harvard.edu/files/kieffer/files/sea.pdf}{mémoire de J.Kieffer}.\\
+Ref 2 : \href{https://www.mat.uniroma2.it/~schoof/ctg.pdf}{Papier de Schoof}.
+
+\section{Defs de la ref 1}
+\indent \indent {\color{RoyalPurple}Polynome de noyau} de $G\leq E$ : $\prod_{P\in G}(X-x(P))$
+\section{Sur la partie II de la ref 1}
+\indent \indent {\textbf{\color{Sepia}Page 6}} : Isogénie de degré $l$ premier à $p$. On a 
+\begin{align*}
+    \phi~:~E&\to E'\\
+    (x,y)&\mapsto (\phi_x(x,y), cy\phi_x'(x,y))
+\end{align*}
+
+\noindent Ecrire $\frac{dx'\circ\phi}{y'\circ\phi}=\frac{d\phi_x}{\phi_y}$ en fonction de $\frac{dx}{y}$.
+On peut surement appliquer R.R et obtenir une relation $\overline{\mathbb{F}}_q$-dépendante.
+\\ \newline
+\indent {\textbf{\color{Sepia}Page 8}} : A la fin, la deuxième équivalence est claire en écrivant $\phi=$ 
+$\begin{pmatrix} 
+    \alpha & \gamma\\
+    0 & \beta
+\end{pmatrix}$
+via l'espace propre $E_{\alpha}$. Pour la première équivalence On
+note $t^2-4q=w^2~mod~l$ alors $q=2^{-1}(t-w)2^{-1}(t+w)~mod~l$ i.e. $\alpha=2^{-1}(t-w)$
+et $\beta=2^{-1}(t+w)$ d'ou $q=\alpha\beta$ et $t=\alpha+\beta$. Faut vérif que $<\alpha>$ est rationnel.
+Inversement 
+
+
+\section{Sur la partie 6 de la ref 2}
+
+\end{document}

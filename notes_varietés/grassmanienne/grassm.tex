@@ -1,0 +1,81 @@
+\documentclass[12pt]{article}
+\usepackage[dvipsnames]{xcolor}
+\usepackage{hyperref, pagecolor, mdframed }
+\usepackage{graphicx, amsmath, latexsym, amsfonts, amssymb, amsthm,
+amscd, geometry, xspace, enumerate, mathtools}
+\usepackage{tikz}
+\usepackage{tabularx, array}
+
+\setlength{\oddsidemargin}{-10mm}
+\setlength{\evensidemargin}{5mm}
+\setlength{\textwidth}{175mm}
+\setlength{\headsep}{0mm}
+\setlength{\topmargin}{0mm}
+\setlength{\textheight}{220mm}
+\setlength\parindent{24pt}
+
+\theoremstyle{plain}
+\newtheorem{thm}[subsubsection]{Th\'eor\`eme}
+
+\newcommand{\fdiv}{\textrm{div}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\algK}{\overline{K}}
+\newcommand{\algF}{\overline{\mathbb{F}}}
+\newcommand{\Pic}{\textrm{Pic}}
+\newcommand{\Hom}{\textrm{Hom}}
+\newcommand{\End}{\textrm{End}}
+\newcommand{\Disc}{\textrm{Disc}}
+\newcommand{\Det}{\textrm{Det}}
+\newcommand{\Tr}{\textrm{Tr}}
+\newcommand{\Or}{\mathcal{O}}
+\newcommand{\OK}{\mathcal{O}_{K}}
+\newcommand{\OL}{\mathcal{O}_{L}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\ai}{\mathfrak{a}}
+\newcommand{\bi}{\mathfrak{b}}
+\newcommand{\w}{\omega}
+\newcommand{\gr}{\color{Sepia}}
+\newcommand{\rg}{\color{Red}}
+\hypersetup{
+    colorlinks=true,
+    linkcolor=blue,
+    urlcolor=Green,
+    filecolor=RoyalPurple
+}
+
+\newcolumntype{M}[1]{>{\raggedright}m{#1}}
+
+\definecolor{wgrey}{RGB}{148, 38, 55}
+
+\title{NUCOMP}
+\date{15 septembre 2023}
+\begin{document}
+\maketitle
+
+\begin{center}
+\begin{tabular}{M{4 cm} M{4 cm} M{4 cm}}
+    Espace & éléments & base \\
+    \tabularnewline
+    $\bigwedge^r V$ & $\sum_{i=1}^{r} a_i \bigwedge_j^i e_{i_j}$  & $(e_{i_1}\wedge...\wedge e_{i_r})$\\
+    \tabularnewline 
+    $V$&$\sum_i a_ie_i$ &$(e_1,...,e_r)$  \\
+    \tabularnewline
+    & \tabularnewline
+  
+    
+\end{tabular}
+\end{center}
+
+On regarde $S_r(V)$ l'ensemble des familles libres de $V$ de dim $r$. Et on a :
+\begin{align*}
+    \phi~:~S_r(V)&\rightarrow \mathcal{P}(\bigwedge^r V)\\
+    (f_1,...,f_r)&\mapsto f_1\wedge ...\wedge f_r\\
+\end{align*}
+
+(On a une action de $GL_r(V)$ qui passe au quotient ?)
+
+
+
+
+\end{document}

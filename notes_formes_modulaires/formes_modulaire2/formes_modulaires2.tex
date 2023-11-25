@@ -17,6 +17,7 @@ amscd, geometry, xspace, enumerate, mathtools}
 \newtheorem{prop2}[subsection]{Proposition}
 \newtheorem{propr2}[subsection]{Propri\'et\'e}
 \newtheorem{cor2}[subsection]{Corollaire}
+\newtheorem{prf}{Preuve}
 
 \theoremstyle{definition}
 \newtheorem{defn}[subsubsection]{D\'efinition}
@@ -171,9 +172,72 @@ Les transformations sont conformes, contenues dans $\h\cup\Q$ d'ou des disques t
 
 Y'a quelques étapes en plus pour la structure de surface de Riemann par rapport à $X(1)$. C'est p.59 (a regarder)
 
+\subsection{coordonnées locales}
+Etant donné $\tau$ et $h_{\tau}=\lvert\Gamma_{\tau}\rvert$.
+Sur $Y(\Gamma)$ les points problématiques pour définir
+des cartes localement c'est juste les points elliptiques 
+ou on a pas exactement des boules. Ducoup sur on def
 
+\begin{defn}
+    La coordonnée locale en $\tau$ comme
+     $$\delta_{\tau}^{h_{\tau}}:\h\rightarrow \mathbb{D}$$
+\end{defn}
 
+Aux pointes on définit la largeur d'un point comme 
+$h_{\tau}=[\pm SL_2(\Z):\pm \Gamma]$. L'interêt vient du fait 
+que si $\alpha(\tau)=\infty$ la différence entre $SL_2(\Z)$
+et $\Gamma$ dans leurs action sur $\alpha$ est mesurée par
+$[\pm Stab(SL_2(\Z), \infty):\pm Stab(\delta^{-1}\Gamma\delta, \infty)]$.
+(à noter que les bandes verticales $k+i\mathbb{R}$ sont envoyées 
+sur des paraboles allant de $\tau$ au bord de la boule.)\\
+La coordonnée locale en $\infty$ est 
+\begin{defn}
+    donnée naturellement par $$\tau\mapsto e^{2i\pi\tau/h_{\tau}}$$
+
+    Par extension $$\tau\mapsto e^{2i\pi\delta(\tau)/h_{\tau}}$$
+\end{defn}
+
+L'holomorphie des changements de carte se montre 
+en montrant simplement l'holomorphie en $0$. 
+L'inverse est alors holomorphe en $0$ immédiatement.
+Ensuite pour montrer l'holomorphie en $q$ on compose juste
+avec la carte locale en $(\delta_{\tau}^{h_{\tau}})^{-1}$
+(avec le $\tau$ d'avant) et on se retrouve dans le cas $0$.
+\begin{prf}
+    En $0$, $q\mapsto \delta_{\tau_1}^{h_1}\circ\gamma\circ
+    (\delta_{\tau_2}^{h_2})^{-1}(q)$(le $\gamma$ envoie 
+    $\tau_1$ sur $\tau_2$, on fait ca parce que les cartes
+    sont faites telles que $\gamma U_1\cap U_2\ne \emptyset$
+    $\implies \gamma\tau_1=\tau_2$).
+     S'écrit $(Mq^{1/h})^h$
+    ou $M$ fixe $0$ et l'infini donc est diagonale. En plus
+    $h_2=h_1$ d'ou l'holomorphie.
+\end{prf}
+
+A l'infini c'est pareil.
+
+\begin{rem}
+    Si on observe $\delta_{\tau}$ en un point elliptique
+     comme $i$ par ex. On remarque qu'elle envoie les points
+     des paraboles proche d e$\tau$ sur des droites. Par ex
+     pour $i$ le cercle est envoyé sur les droites
+     $$Y=\pm\frac{Im(\tau)}{Re(\tau)}X$$
+\end{rem}
+
+\section{formes modulaires et dimension}
+\begin{lem}
+    \begin{enumerate}
+        \item Les morphismes de surfaces de Riemann holomorphes
+        sont constants (on a une fonction bornée a l'infini
+        sur $\C$)
+        \item En conséquence, les fibres sont discrètes. 
+        (sinon $x\mapsto f(x)-y$ contient un point d'accumulation)
+        \item Etant donné $f:X\rightarrow Y$, dans chaque carte
+        on peut écrire le morphisme comme $z\mapsto z^d$. 
+        (le morphisme local s'écrit $z\mapsto\sum a_i z^i$)
+        
+    \end{enumerate}
+\end{lem}
 
 \end{document}
 
-\section{formes modulaires et dimension}

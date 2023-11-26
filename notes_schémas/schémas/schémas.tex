@@ -32,13 +32,41 @@ amscd, geometry, xspace, enumerate, mathtools}
 \section{Première défs et props}
 Ducoup, $X$ un e.t. et $\Topo(X)$ la catégorie des ouverts de $X$ où les morphismes sont les inclusions.
 
-\textbf{\color{wgrey} Def} : Un faisceaux $\F$ sur $X$ est un foncteur contravariant de $\Topo$ dans $Ab/Ring/etc.$.
+\begin{defn}
+    Un prefaisceau $\F$ sur $X$ est un foncteur contravariant de $\Topo$ dans $Ab/Ring/etc.$.
+\end{defn}
+
+\begin{defn}
+    Un faisceau est un préfaisceau qui satisfait
+    des conditions de recollements. Etant donné $s,s'\in \F U=\cup U_i$
+    \[s|_{U_i}=s|_{U_j} \implies s=s'\]
+    Et si on a des sections locales qui se recollent bien 
+    alors il existe une unique section globale qui les 
+    relèvent.
+\end{defn}
 
 \begin{thm}
-    
+    Les faisceaux sont entièrements déterminés par les stalks, un morphisme de faisceaux 
+    \[\F\rightarrow\G\]
+    est un isomorphisme ssi $\forall P$ 
+    \[\F_P\rightarrow \G_P\]
+    est un isomorphisme.
 \end{thm}
-\subsection{Faisceautisation}
+C'est aussi vrai pour les injection/surjection
 
+\subsection{Faisceautisation}
+On considère:
+\begin{defn}
+    \[\F^+U:=\{(s_P)\in \prod_{P\in V} \F_p | 
+    \forall P~ \exists V, s_P = (\sigma, U)\in \F_P \}\]
+\end{defn}
+I.e. Les sections sont exactement celles qui sont relevables !
+\begin{thm}
+    $\F^+$ est un faisceau et il existe $\F\rightarrow \F^+$
+    t.q $\forall$ faisceau $ \G$ on ait 
+    \[ \F\rightarrow \F^+\rightarrow \G \]
+    avec des propriétés d'unicité.
+\end{thm}
 
 
 
